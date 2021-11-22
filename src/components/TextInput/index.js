@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Container, ContainerLabel, Input, Label } from './styles';
 
-export const TextInput = ({ color, placeholder, label ,onBlur,onFocus, active, ...rest }) => {
+export const TextInput = ({
+  isPassword = true, 
+  color, 
+  placeholder, 
+  label, 
+  active, 
+  ...rest }) => {
   
   const [isFocused, setIsFocused] = useState(false);
   const [border, setBorder] = useState(false);
@@ -24,7 +30,9 @@ export const TextInput = ({ color, placeholder, label ,onBlur,onFocus, active, .
         onBlur={() => setIsFocused(false)}
         onFocus={() => setIsFocused(true)}
         focused={border}
+        secureTextEntry={isPassword}
         {...rest}
+        placeholderTextColor="rgba(255,255,255,0.6)"
         placeholder={isFocused ? "" : placeholder}
       />
       {
