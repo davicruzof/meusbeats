@@ -12,20 +12,20 @@ export const Input = styled.TextInput`
     padding: 16px;
     font-family: 'Roboto-Regular';
     font-size: 16px;
-    z-index: 999;
+    z-index: 99999;
 `;
 
 export const ContainerLabel = styled.View`
     position: absolute;
     left: 16px;
-    top: ${props => props.focused ? -6 : 17}px;
+    top: ${props => props.focused ? -6 : props.active ? -6 : 17}px;
     padding: 0 8px;
-    z-index: 1;
-    background-color: ${props => props.focused ? props.color : 'transparent'};
+    z-index: -1;
+    background-color: ${props => props.focused || props.active ? props.color :'transparent'};
 `;
 
 export const Label = styled.Text`
     font-family: 'Roboto-Regular';
-    color: ${props => props.focused ? '#BB86FC' : '#979797'};
-    font-size: ${props => props.focused ? 12 : 16}px;
+    color: ${props => props.focused || props.active ? '#BB86FC' : '#979797'};
+    font-size: ${props => props.focused || props.active ? 12 : 16}px;
 `;
