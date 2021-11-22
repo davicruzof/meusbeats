@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-    margin-top: 50px;
+    width: 100%;
 `;
 
 export const Input = styled.TextInput`
@@ -12,7 +12,7 @@ export const Input = styled.TextInput`
     padding: 16px;
     font-family: 'Roboto-Regular';
     font-size: 16px;
-    z-index: 99999;
+    margin-bottom: 32px;
 `;
 
 export const ContainerLabel = styled.View`
@@ -20,7 +20,6 @@ export const ContainerLabel = styled.View`
     left: 16px;
     top: ${props => props.focused ? -6 : props.active ? -6 : 17}px;
     padding: 0 8px;
-    z-index: -1;
     background-color: ${props => props.focused || props.active ? props.color :'transparent'};
 `;
 
