@@ -60,7 +60,7 @@ export const RegisterTitle = styled.Text`
 `;
 
 export const RegisterButtonText = styled.Text`
-    color: #0ACF83;
+    color: ${props => props.active ? ' #019592' : '#0ACF83'};
     text-decoration: underline;
     font-size: 14px;
     font-family: 'DMSans-Bold';
