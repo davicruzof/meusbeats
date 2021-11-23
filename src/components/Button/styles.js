@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.TouchableOpacity`
-    background-color: #6200EE;
+    background-color: ${props => props.active ? '#985EFF' : '#6200EE'};
     height: 50px;
     border-radius: 200px;
     justify-content: center;
