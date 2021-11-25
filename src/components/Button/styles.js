@@ -1,7 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Colors } from '../../utils/Colors';
+import { Fonts } from '../../utils/Fonts';
 
 export const Container = styled.TouchableOpacity`
-    background-color: ${props => props.active ? '#985EFF' : '#6200EE'};
+    background-color: ${props =>
+        props.active ? Colors.primary : Colors.secondary};
     height: 50px;
     border-radius: 200px;
     justify-content: center;
@@ -9,8 +12,8 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const TextButton = styled.Text`
-    color: #fff;
-    font-family: 'DMSans-Bold';
+    color: ${Colors.white};
+    font-family: ${Fonts.DMSansBold};
     font-weight: bold;
     font-size: 16px;
     letter-spacing: 0.2px;

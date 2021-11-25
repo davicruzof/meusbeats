@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import LinearGradient from 'react-native-linear-gradient'
+import { Fonts } from "../../utils/Fonts";
+import { Colors } from "../../utils/Colors";
 
 export const ImageBackground = styled.ImageBackground`
     object-fit: cover;
@@ -19,8 +21,8 @@ export const Background = styled(LinearGradient).attrs({
 export const Title = styled.Text`
     font-size: 45px;
     font-weight: bold;
-    font-family: 'DMSans-Bold';
-    color: #fff;
+    font-family: ${Fonts.DMSansBold};
+    color: ${Colors.white};
     text-align: center;
     margin-top: 64px;
     margin-bottom: 8px;
@@ -29,10 +31,10 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
     font-size: 14px;
     font-weight: bold;
-    font-family: 'DMSans-Bold';
+    font-family: ${Fonts.DMSansBold};
     letter-spacing: 0.2px;
     line-height: 20px;
-    color: #fff;
+    color: ${Colors.white};
     text-align: center;
 `;
 
@@ -52,18 +54,18 @@ export const RegisterContainer = styled.View`
 
 export const RegisterTitle = styled.Text`
     font-size: 14px;
-    font-family: 'DMSans-Regular';
+    font-family: ${Fonts.DMSansRegular};
     letter-spacing: 0.2px;
     line-height: 20px;
-    color: #fff;
+    color: ${Colors.white};
     text-align: center;
 `;
 
 export const RegisterButtonText = styled.Text`
-    color: ${props => props.active ? ' #019592' : '#0ACF83'};
+    color: ${props => props.active ? Colors.darkGreen : Colors.green};
     text-decoration: underline;
     font-size: 14px;
-    font-family: 'DMSans-Bold';
+    font-family: ${Fonts.DMSansBold};
     letter-spacing: 0.2px;
     line-height: 20px;
     font-weight: bold;
