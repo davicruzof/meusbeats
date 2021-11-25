@@ -1,23 +1,24 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/Feather';
+import { Colors } from '../../utils/Colors';
 import { TextInput } from '../TextInput';
 
 export const TextInputIcon = ({ icon, isPassword, active, label, updateIcon, ...props }) => {
   return (
-      <Icon.Button 
-        name={icon} 
+      <Icon.Button
+        name={icon}
         size={22}
-        iconStyle={{ 
+        iconStyle={{
             flex:1,
             top: 24,
             right: 20,
             position: 'absolute',
         }}
-        color="#979797"
+        color={Colors.darkGray}
         backgroundColor='transparent'
-        onPress={updateIcon} 
+        onPress={updateIcon}
       >
-        <TextInput 
+        <TextInput
             isPassword={isPassword}
             label={label}
             color="transparent"

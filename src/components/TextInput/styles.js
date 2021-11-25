@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import { Colors } from '../../utils/Colors';
+import { Fonts } from '../../utils/Fonts';
 
 export const Container = styled.View`
     width: 100%;
@@ -6,14 +8,16 @@ export const Container = styled.View`
 `;
 
 export const Input = styled.TextInput`
-    border: ${props => props.focused ? '3px solid #BB86FC' : '1px solid #DADADA'};
+    border: ${props => props.focused
+        ? '3px solid ' + Colors.lilac
+        : '1px solid ' + Colors.gray};
     background-color: transparent;
     border-top-width: ${props => props.focused || props.active ? 0 : '1px'};
     border-radius: 4px;
     height: 56px;
     padding: 16px;
-    font-family: 'Roboto-Regular';
+    font-family: ${Fonts.RobotoRegular};
     font-size: 16px;
     margin-bottom: 32px;
-    color: #fff;
+    color: ${Colors.white};
 `;
