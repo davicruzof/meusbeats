@@ -18,6 +18,18 @@ export const Input = styled.TextInput`
     padding: 16px;
     font-family: ${Fonts.RobotoRegular};
     font-size: 16px;
-    margin-bottom: 32px;
     color: ${Colors.white};
+`;
+
+export const ContainerError = styled.View`
+    width: 100%;
+    padding: 10px 0;
+    padding-left: 15px;
+`;
+
+export const TextError = styled.Text`
+    color: ${Colors.ligthGreen};
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    font-family: ${Fonts.RobotoRegular};
 `;
