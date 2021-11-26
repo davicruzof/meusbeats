@@ -19,8 +19,6 @@ export const TextInput = ({
   msgError = "",
   ...rest }) => {
 
-    console.log(errorInput, msgError)
-
   const [isFocused, setIsFocused] = useState(false);
   const [border, setBorder] = useState(false);
 
