@@ -6,6 +6,7 @@ import {
 
 import {Label } from '../Label'
 import { Fonts } from '../../utils/Fonts';
+import { Colors } from '../../utils/Colors';
 
 export const TextInput = ({
   isPassword = true,
@@ -39,7 +40,7 @@ export const TextInput = ({
         secureTextEntry={isPassword}
         active={active}
         {...rest}
-        placeholderTextColor={Fonts.placeholder}
+        placeholderTextColor={Colors.placeholder}
         placeholder={isFocused ? "" : placeholder}
       />
       {
