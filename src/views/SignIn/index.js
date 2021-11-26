@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StatusBar } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Alert, StatusBar } from 'react-native';
 import bgLogin from '../../assets/bg-login.png';
 import {
     Title,
@@ -17,12 +17,58 @@ import { TextInputIcon } from '../../components/TextInputIcon';
 import { Colors } from '../../utils/Colors';
 
 export const SignIn = () => {
+    
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [userView, setUserView] = useState(false);
+    const [errorUser, setErrorUser] = useState(false);
     const [activeButton, setActiveButton] = useState(false);
     const [passwordView, setPasswordView] = useState(false);
+    const [errorPassword, setErrorPassword] = useState(false);
     const [activeRegisterButton, setActiveRegisterButton] = useState(false);
+
+
+    useEffect(() => {
+        setErrorUser(false)
+    },[user])
+
+    useEffect(() => {
+        setErrorPassword(false)
+    },[password])
+
+
+    const login = async() => {
+
+        if(!user || !password){
+            Alert.alert('Meus Beats', "Preencha o usuário e a senha")
+            return;
+        }
+
+        setActiveButton(!activeButton)
+
+        const raw = JSON.stringify({
+            "email": user,
+            "senha": password
+        });
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+    
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+        };
+    
+        fetch("https://meusbeats.herokuapp.com/api/login", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+            result.message === 'Usuario inválido' ? setErrorUser(true) : setErrorUser(false);
+            result.message === 'Senha inválida' ? setErrorPassword(true) : setErrorPassword(false);
+        })
+        .catch( _ => Alert.alert("Meus Beats",'Desculpa ocorreu um erro!'));
+        
+    }
 
     return (
         <ImageBackground source={bgLogin}>
@@ -36,6 +82,9 @@ export const SignIn = () => {
                             value={user}
                             label="Usuário"
                             isPassword={!userView}
+                            errorInput={errorUser}
+                            msgError="Usuário inválido"
+                            isPassword={!passwordView}
                             icon={userView ? 'eye-off' : 'eye'}
                             active={user.length > 0}
                             onChangeText={value => setUser(value)}
@@ -44,6 +93,8 @@ export const SignIn = () => {
                         <TextInputIcon
                             value={password}
                             label="Senha"
+                            msgError="Senha incorreta"
+                            errorInput={errorPassword}
                             isPassword={!passwordView}
                             icon={passwordView ? 'eye-off' : 'eye'}
                             active={password.length > 0}
@@ -51,9 +102,10 @@ export const SignIn = () => {
                             updateIcon={() => setPasswordView(!passwordView)}
                         />
                         <Button
-                            onPress={() => setActiveButton(!activeButton)}
+                            onPress={login}
                             text="Entrar"
                             active={activeButton}
+                            style={{ marginTop: 49}}
                         />
                         <RegisterContainer>
                             <RegisterTitle>
