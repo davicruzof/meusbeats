@@ -8,6 +8,7 @@ export const Colors = {
     darkGray: '#979797',
     secondary: '#6200EE',
     darkGreen: '#019592',
+    ligthGreen: '#70EFDE',
     transparent: 'rgba(0,0,0,0)',
     placeholder: 'rgba(255,255,255,0.6)'
 };
