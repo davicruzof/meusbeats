@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import {
   Input,
   Container,
+  ContainerError,
+  TextError,
 } from './styles';
 
 import {Label } from '../Label'
-import { Fonts } from '../../utils/Fonts';
 import { Colors } from '../../utils/Colors';
 
 export const TextInput = ({
@@ -14,7 +15,11 @@ export const TextInput = ({
   placeholder,
   label,
   active,
+  errorInput = false, 
+  msgError = "",
   ...rest }) => {
+
+    console.log(errorInput, msgError)
 
   const [isFocused, setIsFocused] = useState(false);
   const [border, setBorder] = useState(false);
@@ -48,6 +53,9 @@ export const TextInput = ({
           <Label label={label} active={isFocused} />
         )
       }
+      <ContainerError >
+          { errorInput && <TextError >{msgError}</TextError>}
+      </ContainerError>
     </Container>
   );
 };

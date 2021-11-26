@@ -3,7 +3,13 @@ import Icon from 'react-native-vector-icons/Feather';
 import { Colors } from '../../utils/Colors';
 import { TextInput } from '../TextInput';
 
-export const TextInputIcon = ({ icon, isPassword, active, label, updateIcon, ...props }) => {
+export const TextInputIcon = ({ 
+  errorInput = false, 
+  msgError = "",
+  icon, 
+  isPassword, 
+  active, label, updateIcon, ...props }) => {
+  
   return (
       <Icon.Button
         name={icon}
@@ -24,6 +30,8 @@ export const TextInputIcon = ({ icon, isPassword, active, label, updateIcon, ...
             color="transparent"
             placeholder={label}
             active={active}
+            errorInput={errorInput} 
+            msgError={msgError}
             {...props}
         />
       </Icon.Button>
