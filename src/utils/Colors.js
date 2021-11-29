@@ -10,5 +10,6 @@ export const Colors = {
     darkGreen: '#019592',
     ligthGreen: '#70EFDE',
     transparent: 'rgba(0,0,0,0)',
-    placeholder: 'rgba(255,255,255,0.6)'
+    placeholder: 'rgba(255,255,255,0.6)',
+    ligthPrimary: 'rgba(125,34,255,0.5)'
 };
