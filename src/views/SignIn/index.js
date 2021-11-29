@@ -73,7 +73,7 @@ export const SignIn = () => {
     return (
         <ImageBackground source={bgLogin}>
             <StatusBar backgroundColor={Colors.transparent} translucent />
-            <Background colors={[Colors.primary, Colors.secondary]}>
+            <Background colors={[Colors.ligthPrimary, Colors.secondary]}>
                 <Background colors={[Colors.transparent, Colors.black]}>
                     <Title>Meus Beats</Title>
                     <Subtitle>Especializados em fones para deejay</Subtitle>
