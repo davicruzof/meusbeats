@@ -84,7 +84,7 @@ export const SignIn = () => {
                             isPassword={!userView}
                             errorInput={errorUser}
                             msgError="Usuário inválido"
-                            isPassword={!passwordView}
+                            isPassword={!userView}
                             icon={userView ? 'eye-off' : 'eye'}
                             active={user.length > 0}
                             onChangeText={value => setUser(value)}
