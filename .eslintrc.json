@@ -14,20 +14,17 @@
         "ecmaVersion": 11,
         "sourceType": "module"
     },
-    "plugins": [
-        "react",
-        "prettier",
-        "react-hooks"
-    ],
+    "plugins": ["react", "prettier", "react-hooks"],
     "rules": {
-        "prettier/prettier": "error",
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "import/prefer-default-export": "off",
-        "react/jsx-props-no-spreading": ["enabled", {
-            "custom": "ignore",
-            "explicitSpread": "ignore"
-        }]
+        "import/prefer-default-export": "off"
     }
 }
