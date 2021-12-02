@@ -13,10 +13,11 @@ import {
     RegisterButtonText,
     ContainerButton
 } from './styles';
-import bg from '@assets/bg-login.png';
+import bg from '@assets/bgLogin.png';
 import { Button } from '@components/Button';
 import { Alert, StatusBar } from 'react-native';
 import { Colors } from '@utils/Colors';
+import { apiRequest } from '../../services/login';
 
 const SignIn = function (): ReactElement {
     const [user, setUser] = useState<string>('');
@@ -28,9 +29,11 @@ const SignIn = function (): ReactElement {
     const [errorPassword, setErrorPassword] = useState<boolean>(false);
     const [activeRegisterButton, setActiveRegisterButton] =
         useState<boolean>(false);
-
+    const msgErrorUser = 'Usuario inválido';
+    const msgErrorPassword = 'Senha inválida';
     const iconUser = userView ? 'eye-off' : 'eye';
     const iconPassword = passwordView ? 'eye-off' : 'eye';
+
     useEffect(() => {
         setErrorUser(false);
     }, [user]);
@@ -52,32 +55,11 @@ const SignIn = function (): ReactElement {
             senha: password
         });
 
-        apiRequest(raw);
-    };
+        const res = await apiRequest(raw);
 
-    const apiRequest = async (data: string) => {
-        const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
-
-        const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: data
-        };
-
-        fetch('https://meusbeats.herokuapp.com/api/login', requestOptions)
-            .then((response) => response.json())
-            .then((result) => {
-                result.message === 'Usuario inválido'
-                    ? setErrorUser(true)
-                    : setErrorUser(false);
-                result.message === 'Senha inválida'
-                    ? setErrorPassword(true)
-                    : setErrorPassword(false);
-            })
-            .catch((_) =>
-                Alert.alert('Meus Beats', 'Desculpa ocorreu um erro!')
-            );
+        setErrorUser(res.message === msgErrorUser ? true : false);
+        setErrorPassword(res.message === msgErrorPassword ? true: false);
+    
     };
 
     const register = () => {
