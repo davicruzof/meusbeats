@@ -1,15 +1,17 @@
+import React, { ReactElement, useEffect, useState } from 'react';
+import { TextInputProps } from 'react-native';
+
 import { Error } from '@components/Error';
 import { Label } from '@components/Label';
 import { Colors } from '@utils/Colors';
-import React, { ReactElement, useEffect, useState } from 'react';
-import { TextInputProps } from 'react-native';
+
 import { Container, ContainerInput } from './styles';
 
 interface InputProps extends TextInputProps {
-    status: boolean | false;
-    text: string | '';
-    error: string | '';
-    errorInput: boolean | false;
+    status: boolean;
+    text: string;
+    error: string;
+    errorInput: boolean;
 }
 
 const Input = function ({
@@ -20,10 +22,11 @@ const Input = function ({
     ...rest
 }: InputProps): ReactElement {
     const [isFocused, setIsFocused] = useState<boolean>(false);
-    const statusLabel = status || isFocused ? true : false;
+    const statusLabel: boolean = status || isFocused ? true : false;
     const [border, setBorder] = useState<boolean>(false);
     const [showLabel, setShowLabel] = useState<boolean>(statusLabel);
-    const textPlaceholder = isFocused ? '' : text;
+    const textPlaceholder: string = isFocused ? '' : text;
+    const labelStatus: boolean = !isFocused && !status ? false : true;
 
     useEffect(() => {
         if (isFocused) {
@@ -35,7 +38,7 @@ const Input = function ({
     }, [isFocused]);
 
     useEffect(() => {
-        setShowLabel(!isFocused && !status ? false : true);
+        setShowLabel(labelStatus);
     }, [isFocused, status]);
 
     return (
