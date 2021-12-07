@@ -13,12 +13,12 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "skipLibCheck": false,
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "paths": {
-            "@components/*": ["./src/components/*"],
-            "@assets/*": ["./src/assets/*"],
-            "@utils/*": ["./src/utils/*"],
-            "@style/*": ["./style/*"]
+            "@utils/*": ["./utils/*"],
+            "@assets/*": ["./assets/*"],
+            "@services/*": ["./services/*"],
+            "@components/*": ["./components/*"]
         }
     },
     "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
