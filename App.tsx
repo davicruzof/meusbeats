@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignIn } from './src/views/SignIn';
+import { SignIn } from 'views/SignIn';
 
 const App = function () {
     return <SignIn />;
