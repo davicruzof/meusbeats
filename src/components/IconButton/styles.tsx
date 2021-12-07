@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
-import { Colors } from '@utils/Colors';
 import Feather from 'react-native-vector-icons/Feather';
 
+import { Colors } from '@utils/Colors';
+
 export const Icon = styled(Feather.Button).attrs({
-    size:22,
-    iconStyle:{
+    size: 22,
+    iconStyle: {
         flex: 1,
         top: 24,
         right: 20,
@@ -12,5 +13,4 @@ export const Icon = styled(Feather.Button).attrs({
     },
     color: `${Colors.darkGray}`,
     backgroundColor: `${Colors.transparent}`
-})`
-`;
+})``;

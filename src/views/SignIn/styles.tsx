@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import LinearGradient from 'react-native-linear-gradient';
+
 import { Fonts } from '@utils/Fonts';
 import { Colors } from '@utils/Colors';
 
