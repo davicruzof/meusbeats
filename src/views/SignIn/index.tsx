@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import { IconButton } from '@components/IconButton';
-import { Input } from '@components/Input';
+import { Alert, StatusBar } from 'react-native';
+
 import {
     Title,
     Subtitle,
@@ -13,11 +13,13 @@ import {
     RegisterButtonText,
     ContainerButton
 } from './styles';
+
 import bg from '@assets/bgLogin.png';
-import { Button } from '@components/Button';
-import { Alert, StatusBar } from 'react-native';
 import { Colors } from '@utils/Colors';
-import { apiRequest } from '../../services/login';
+import { Login } from '@services/Login';
+import { Input } from '@components/Input';
+import { Button } from '@components/Button';
+import { IconButton } from '@components/IconButton';
 
 const SignIn = function (): ReactElement {
     const [user, setUser] = useState<string>('');
@@ -55,11 +57,12 @@ const SignIn = function (): ReactElement {
             senha: password
         });
 
-        const res = await apiRequest(raw);
+        const res = await Login(raw);
 
-        setErrorUser(res.message === msgErrorUser ? true : false);
-        setErrorPassword(res.message === msgErrorPassword ? true: false);
-    
+        const errorUserMessage = res.message === msgErrorUser ? true : false;
+        setErrorUser(errorUserMessage);
+        const errorPasswordMessage = res.message === msgErrorPassword ? true : false;
+        setErrorPassword(errorPasswordMessage);
     };
 
     const register = () => {
@@ -105,12 +108,12 @@ const SignIn = function (): ReactElement {
                             />
                         </IconButton>
                         <ContainerButton>
-                        <Button
-                            onPress={login}
-                            text="Entrar"
-                            active={activeButton}
-                            title={'Entrar'}
-                        />
+                            <Button
+                                onPress={login}
+                                text="Entrar"
+                                active={activeButton}
+                                title={'Entrar'}
+                            />
                         </ContainerButton>
                         <RegisterContainer>
                             <RegisterTitle>
