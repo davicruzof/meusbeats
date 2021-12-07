@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+
 import { Colors } from '@utils/Colors';
 import { Fonts } from '@utils/Fonts';
 
