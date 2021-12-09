@@ -13,11 +13,13 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "skipLibCheck": false,
+        "typeRoots": ["./src/module/type"],
         "baseUrl": "./src",
         "paths": {
             "@utils/*": ["./utils/*"],
             "@assets/*": ["./assets/*"],
             "@services/*": ["./services/*"],
+            "@interfaces/*": ["./interfaces/*"],
             "@components/*": ["./components/*"]
         }
     },
