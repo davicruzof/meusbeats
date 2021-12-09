@@ -1,9 +1,5 @@
 import { baseUrl } from './env';
-
-interface Resolve {
-    message: string;
-    user?: object;
-}
+import { Resolve } from '@interfaces/response-request-login';
 
 const Login = async (data: string): Promise<Resolve> => {
     return new Promise<Resolve>((resolve, reject) => {

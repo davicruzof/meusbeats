@@ -16,13 +16,15 @@ import {
 
 import bg from '@assets/bgLogin.png';
 import { Colors } from '@utils/Colors';
-import { Login } from '@services/Login';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
+import { LoginRequest } from '@services/login';
+import { UserLogin } from '@interfaces/user-login';
 import { IconButton } from '@components/IconButton';
+import { validateLoginFill } from '@services/validation-login';
 
 const SignIn = function (): ReactElement {
-    const [user, setUser] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [userView, setUserView] = useState<boolean>(false);
     const [errorUser, setErrorUser] = useState<boolean>(false);
@@ -38,30 +40,28 @@ const SignIn = function (): ReactElement {
 
     useEffect(() => {
         setErrorUser(false);
-    }, [user]);
+    }, [username]);
 
     useEffect(() => {
         setErrorPassword(false);
     }, [password]);
 
     const login = async () => {
-        if (!user || !password) {
+        const userData: UserLogin = { username, password };
+
+        if (!validateLoginFill(userData)) {
             Alert.alert('Meus Beats', 'Preencha o usuário e a senha');
             return;
         }
 
         setActiveButton(!activeButton);
 
-        const raw = JSON.stringify({
-            email: user,
-            senha: password
-        });
-
-        const res = await Login(raw);
+        const res = await LoginRequest(userData);
 
         const errorUserMessage = res.message === msgErrorUser ? true : false;
         setErrorUser(errorUserMessage);
-        const errorPasswordMessage = res.message === msgErrorPassword ? true : false;
+        const errorPasswordMessage =
+            res.message === msgErrorPassword ? true : false;
         setErrorPassword(errorPasswordMessage);
     };
 
@@ -84,11 +84,13 @@ const SignIn = function (): ReactElement {
                             <Input
                                 error="Usuário invalido"
                                 errorInput={errorUser}
-                                status={!!user}
+                                status={!!username}
                                 text="Usuário"
-                                value={user}
+                                value={username}
                                 secureTextEntry={!userView}
-                                onChangeText={(value: string) => setUser(value)}
+                                onChangeText={(value: string) =>
+                                    setUsername(value)
+                                }
                             />
                         </IconButton>
                         <IconButton
