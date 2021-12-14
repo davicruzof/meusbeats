@@ -1,6 +1,7 @@
+import styled from 'styled-components/native';
+
 import { Colors } from '@utils/Colors';
 import { Fonts } from '@utils/Fonts';
-import styled from 'styled-components/native';
 
 interface InputProps {
     focused: boolean;
