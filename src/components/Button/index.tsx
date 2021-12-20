@@ -1,12 +1,8 @@
 import React, { ReactElement } from 'react';
-import { ButtonProps } from 'react-native';
+
+import { TypeButtonProps } from '@interfaces/button-props';
 
 import { Container, TextButton } from './styles';
-
-interface TypeButtonProps extends ButtonProps {
-    text: string;
-    active: Boolean;
-}
 
 export const Button = ({
     text,

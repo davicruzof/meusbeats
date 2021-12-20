@@ -1,12 +1,8 @@
 import React, { ReactElement } from 'react';
 
-import { After, Before, Container, Text } from './styles';
+import { LabelProps } from '@interfaces/label-props';
 
-interface LabelProps {
-    text: string;
-    status: boolean;
-    focus: boolean;
-}
+import { After, Before, Container, Text } from './styles';
 
 const Label = function ({ text, status, focus }: LabelProps): ReactElement {
     return (

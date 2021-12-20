@@ -66,8 +66,9 @@ export const RegisterTitle = styled.Text`
     text-align: center;
 `;
 
-export const RegisterButtonText = styled.Text<PropsButton>`
-    color: ${(props) => (props.active ? Colors.darkGreen : Colors.green)};
+export const RegisterButtonText = styled.Text`
+    color: ${(props: PropsButton) =>
+        props.active ? Colors.darkGreen : Colors.green};
     text-decoration: underline;
     font-size: 14px;
     font-family: ${Fonts.DMSansBold};
