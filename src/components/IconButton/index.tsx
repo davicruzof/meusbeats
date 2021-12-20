@@ -1,13 +1,8 @@
-import React, { ReactElement, ReactNode } from 'react';
-import { IconButtonProps } from 'react-native-vector-icons/Icon';
+import React, { ReactElement } from 'react';
+
+import { IIconButtonProps } from '@interfaces/icon-button-props';
 
 import { Icon } from './styles';
-
-interface IIconButtonProps extends IconButtonProps {
-    children: ReactNode;
-    name: string;
-    updateIcon: () => void;
-}
 
 function IconButton({
     updateIcon,

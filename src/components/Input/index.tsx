@@ -1,18 +1,11 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import { TextInputProps } from 'react-native';
 
 import { Error } from '@components/Error';
+import { InputProps } from '@interfaces/input-props';
 import { Label } from '@components/Label';
 import { Colors } from '@utils/Colors';
 
 import { Container, ContainerInput } from './styles';
-
-interface InputProps extends TextInputProps {
-    status: boolean;
-    text: string;
-    error: string;
-    errorInput: boolean;
-}
 
 const Input = function ({
     errorInput,
