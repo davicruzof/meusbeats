@@ -1,5 +1,5 @@
-import React, { ReactElement, useEffect, useState } from 'react';
-import { Alert, StatusBar } from 'react-native';
+import React, { ReactElement, useEffect } from 'react';
+import { StatusBar } from 'react-native';
 
 import {
     Title,
@@ -18,23 +18,28 @@ import bg from '@assets/bgLogin.png';
 import { Colors } from '@utils/Colors';
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
-import { LoginRequest } from '@services/login';
-import { UserLogin } from '@interfaces/user-login';
 import { IconButton } from '@components/IconButton';
-import { validateLoginFill } from '@services/validation-login';
+
+import {
+    activeButton,
+    activeRegisterButton,
+    errorPassword,
+    errorUser,
+    login,
+    password,
+    passwordView,
+    register,
+    setErrorPassword,
+    setErrorUser,
+    setPassword,
+    setPasswordView,
+    setUsername,
+    setUserView,
+    username,
+    userView
+} from './logic';
 
 const SignIn = function (): ReactElement {
-    const [username, setUsername] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [userView, setUserView] = useState<boolean>(false);
-    const [errorUser, setErrorUser] = useState<boolean>(false);
-    const [activeButton, setActiveButton] = useState<boolean>(false);
-    const [passwordView, setPasswordView] = useState<boolean>(false);
-    const [errorPassword, setErrorPassword] = useState<boolean>(false);
-    const [activeRegisterButton, setActiveRegisterButton] =
-        useState<boolean>(false);
-    const msgErrorUser = 'Usuario inválido';
-    const msgErrorPassword = 'Senha inválida';
     const iconUser = userView ? 'eye-off' : 'eye';
     const iconPassword = passwordView ? 'eye-off' : 'eye';
 
@@ -45,29 +50,6 @@ const SignIn = function (): ReactElement {
     useEffect(() => {
         setErrorPassword(false);
     }, [password]);
-
-    const login = async () => {
-        const userData: UserLogin = { username, password };
-
-        if (!validateLoginFill(userData)) {
-            Alert.alert('Meus Beats', 'Preencha o usuário e a senha');
-            return;
-        }
-
-        setActiveButton(!activeButton);
-
-        const res = await LoginRequest(userData);
-
-        const errorUserMessage = res.message === msgErrorUser ? true : false;
-        setErrorUser(errorUserMessage);
-        const errorPasswordMessage =
-            res.message === msgErrorPassword ? true : false;
-        setErrorPassword(errorPasswordMessage);
-    };
-
-    const register = () => {
-        setActiveRegisterButton(!activeRegisterButton);
-    };
 
     return (
         <ImageBackground source={bg}>
