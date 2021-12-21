@@ -1,8 +1,13 @@
 import React from 'react';
-import { SignIn } from '@views/SignIn';
+import { NavigationContainer } from '@react-navigation/native';
+import { Routes } from 'routes';
 
 const App = function () {
-    return <SignIn />;
+    return (
+        <NavigationContainer>
+            <Routes />
+        </NavigationContainer>
+    );
 };
 
 export default App;
