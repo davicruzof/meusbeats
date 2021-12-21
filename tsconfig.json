@@ -19,6 +19,7 @@
             "@utils/*": ["./utils/*"],
             "@views/*": ["./views/*"],
             "@assets/*": ["./assets/*"],
+            "@routes/*": ["./routes/*"],
             "@services/*": ["./services/*"],
             "@interfaces/*": ["./interfaces/*"],
             "@components/*": ["./components/*"]
