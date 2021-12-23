@@ -14,6 +14,7 @@ export const Colors = {
     ligthGreen: '#70EFDE',
     darkPrimary: '#441783',
     transparent: 'rgba(0,0,0,0)',
+    ligthGray: 'rgba(75,75,75,0.5)',
     placeholder: 'rgba(255,255,255,0.6)',
     ligthPrimary: 'rgba(125,34,255,0.5)',
     ligthMediumPrimary: 'rgba(125,34,255,0.1)'

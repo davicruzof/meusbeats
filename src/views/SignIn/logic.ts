@@ -3,16 +3,11 @@ import { Alert } from 'react-native';
 
 import { LoginRequest } from '@services/login';
 import { UserLogin } from '@interfaces/user-login';
-import { useNavigation } from '@react-navigation/native';
+import { navigation } from '@interfaces/navigation-props';
 import { validateUsername } from '@services/validate-input';
 import { validatePassword } from '@services/validate-input';
 import { validateLoginFill } from '@services/validation-login';
 
-interface NavigationProps {
-    navigate: (screen: string) => void;
-}
-
-export const navigation = useNavigation<NavigationProps>();
 export const [username, setUsername] = useState<string>('');
 export const [password, setPassword] = useState<string>('');
 export const [userView, setUserView] = useState<boolean>(false);

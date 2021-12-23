@@ -13,10 +13,11 @@ function Header({ children }: HeaderProps): ReactElement {
             locations={[0, 0]}
             colors={[Colors.purple, Colors.darkPrimary]}
         >
-            <Background 
+            <Background
                 size={377}
                 locations={[0.8, 1]}
-                colors={[Colors.transparent, Colors.black]}>
+                colors={[Colors.transparent, Colors.black]}
+            >
                 {children}
             </Background>
         </Background>
