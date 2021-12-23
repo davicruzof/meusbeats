@@ -55,6 +55,6 @@ export const Search = styled.TouchableOpacity`
     position: absolute;
     z-index: 9999;
     top: 60px;
-    right: 10px;
-    padding: 10px;
+    right: 16px;
+    padding: 3.5px;
 `;
