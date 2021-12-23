@@ -17,8 +17,7 @@ export const Emphasis = styled.View`
     align-items: center;
 `;
 
-export const EmphasisPhoto = styled.Image`
-`;
+export const EmphasisPhoto = styled.Image``;
 
 export const Actions = styled.View`
     flex-direction: row;
