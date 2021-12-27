@@ -14,29 +14,31 @@ import {
     ContainerStars,
     PriceText
 } from './styles';
+import { Product } from '@interfaces/product';
 
 function CardProduct({
-    imageProduct,
-    titleProduct,
     starts,
-    reviews,
-    price
-}: CardProductProps): ReactElement {
+    price,
+    name,
+    reviwers,
+    photo,
+    ...props
+}: Product): ReactElement {
     return (
-        <Container>
+        <Container {...props}>
             <ContainerImage>
-                <ImageProduct source={imageProduct} />
+                <ImageProduct source={{ uri: photo }} />
             </ContainerImage>
             <ContainerText>
-                <TitleProduct>{titleProduct}</TitleProduct>
+                <TitleProduct>{name}</TitleProduct>
+                <ContainerInfo>
+                    <ContainerStars>
+                        <IconStar name="star" />
+                        <TextInfo>{starts}</TextInfo>
+                    </ContainerStars>
+                    <TextInfo>{reviwers} Reviews</TextInfo>
+                </ContainerInfo>
             </ContainerText>
-            <ContainerInfo>
-                <ContainerStars>
-                    <IconStar name="star" />
-                    <TextInfo>{starts}</TextInfo>
-                </ContainerStars>
-                <TextInfo>{reviews}</TextInfo>
-            </ContainerInfo>
             <PriceText>R$ {price}</PriceText>
         </Container>
     );
