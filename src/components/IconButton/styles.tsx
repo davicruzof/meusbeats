@@ -13,4 +13,7 @@ export const Icon = styled(Feather.Button).attrs({
     },
     color: `${Colors.darkGray}`,
     backgroundColor: `${Colors.transparent}`
-})``;
+})`
+    padding: 8px 0;
+    justify-content: center;
+`;
