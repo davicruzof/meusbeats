@@ -14,6 +14,7 @@ interface HomeScreenProps {
 }
 
 function HomeScreen({ children }: HomeScreenProps) {
+
     const [products, setProducts] = useState<Array<Product>>([]);
 
     useEffect(() => {
@@ -28,6 +29,7 @@ function HomeScreen({ children }: HomeScreenProps) {
         <Container>
             <StatusBar backgroundColor={Colors.transparent} translucent />
             <Header />
+
             <ListProducts showsVerticalScrollIndicator={false}>
                 {products.length > 0 &&
                     products.map((element: Product, index: number) => (
