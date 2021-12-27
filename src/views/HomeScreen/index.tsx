@@ -18,6 +18,7 @@ interface HomeScreenProps {
 }
 
 function HomeScreen({ children }: HomeScreenProps) {
+
     const [products, setProducts] = useState<Array<Product>>([]);
 
     useEffect(() => {
