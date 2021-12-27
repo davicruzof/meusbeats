@@ -1,6 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import phone from '@assets/fone.png';
 import { Header } from '@components/Header';
@@ -9,8 +10,6 @@ import { Products } from '@services/request-products';
 import { CardProduct } from '@components/CardProduct';
 import { Product } from '@interfaces/product';
 import { Button } from '@components/Button';
-import { IconButton } from '@components/IconButton';
-import { navigation } from '@interfaces/navigation-props';
 
 import {
     Actions,
@@ -57,8 +56,8 @@ function HomeScreen({ children, navigation }: HomeScreenProps) {
                         <ButtonHeader onPress={() => {}}>
                             <Text>Adicionar</Text>
                         </ButtonHeader>
-                        <Ask onPress={() => {}}>
-                            <Text>?</Text>
+                        <Ask onPress={() => navigation.navigate('SignIn')}>
+                            <MaterialIcons name="logout" size={17.5} color={Colors.white} />
                         </Ask>
                     </Actions>
                 </Emphasis>
