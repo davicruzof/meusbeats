@@ -17,8 +17,7 @@ export const Emphasis = styled.View`
     align-items: center;
 `;
 
-export const EmphasisPhoto = styled.Image`
-`;
+export const EmphasisPhoto = styled.Image``;
 
 export const Actions = styled.View`
     flex-direction: row;
@@ -55,6 +54,6 @@ export const Search = styled.TouchableOpacity`
     position: absolute;
     z-index: 9999;
     top: 60px;
-    right: 16px;
-    padding: 3.5px;
+    right: 10px;
+    padding: 10px;
 `;

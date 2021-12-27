@@ -12,6 +12,7 @@ module.exports = {
                     '@assets': './src/assets',
                     '@routes': './src/routes',
                     '@services': './src/services',
+                    '@interfaces': './src/interfaces',
                     '@components': './src/components'
                 }
             }
